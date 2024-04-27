@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -28,9 +29,9 @@ public class BandaController {
 		return repository.lista();
 	}
 	
-	@GetMapping("/delete")
-	public void deleteBanda() {
-		repository.delete(8);
+	@GetMapping("/delete/{id}")
+	public void deleteBanda(@PathVariable Integer id) {
+		repository.delete(id);
 	}
 	
 	

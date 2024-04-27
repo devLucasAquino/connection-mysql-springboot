@@ -55,7 +55,7 @@ public class BandaRepository implements iCRUD{
 
 	@Override
 	public void delete(int id) {
-		int result = jdbcTemplate.update(deleteRow, id); 
+		jdbcTemplate.update(deleteRow, id); 
 	}
 
 }
