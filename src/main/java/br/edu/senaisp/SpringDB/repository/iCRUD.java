@@ -12,7 +12,7 @@ public interface iCRUD {
 	
 	public Banda altera(Banda banda, int id);
 	
-	public Banda insere(Banda banda);
+	public void insere(String nome, int anoLaunch);
 	
 	public boolean delete(int id);
 }

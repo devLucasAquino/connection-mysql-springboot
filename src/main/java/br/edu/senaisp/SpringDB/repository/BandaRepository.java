@@ -10,6 +10,13 @@ import br.edu.senaisp.SpringDB.model.Banda;
 @Repository
 public class BandaRepository implements iCRUD{
 	
+	
+	private String qrSelectAll = 
+			"SELECT id, nome, anoLaunch FROM BANDA;";
+	
+	private String insertRow = 
+			"INSERT INTO BANDA (nome, anoLaunch) VALUES (?, ?)";
+	
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
 	
@@ -17,8 +24,13 @@ public class BandaRepository implements iCRUD{
 
 	@Override
 	public List<Banda> lista() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return jdbcTemplate.query(qrSelectAll, 
+				(rs, rowNum) -> {		
+			return new Banda(rs.getInt("id"), 
+						rs.getString("nome"), 
+						rs.getInt("anoLaunch"));
+		});
 	}
 
 	@Override
@@ -34,9 +46,8 @@ public class BandaRepository implements iCRUD{
 	}
 
 	@Override
-	public Banda insere(Banda banda) {
-		// TODO Auto-generated method stub
-		return null;
+	public void insere(String nome, int anoLaunch) {
+		int result = jdbcTemplate.update(insertRow, nome, anoLaunch);
 	}
 
 	@Override

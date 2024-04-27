@@ -21,8 +21,17 @@ public class Banda {
 	
 	
 	public Banda() {
-		super();
 	}
+	
+	
+
+	public Banda(Integer id, String nome, int anoLauch) {
+		this.id = id;
+		this.nome = nome;
+		this.anoLauch = anoLauch;
+	}
+
+
 
 	public Integer getId() {
 		return id;
