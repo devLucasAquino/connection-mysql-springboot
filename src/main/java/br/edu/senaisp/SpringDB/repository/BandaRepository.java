@@ -17,6 +17,9 @@ public class BandaRepository implements iCRUD{
 	private String insertRow = 
 			"INSERT INTO BANDA (nome, anoLaunch) VALUES (?, ?)";
 	
+	private String deleteRow = 
+			"DELETE FROM BANDA WHERE id = ?";
+	
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
 	
@@ -51,9 +54,8 @@ public class BandaRepository implements iCRUD{
 	}
 
 	@Override
-	public boolean delete(int id) {
-		// TODO Auto-generated method stub
-		return false;
+	public void delete(int id) {
+		int result = jdbcTemplate.update(deleteRow, id); 
 	}
 
 }

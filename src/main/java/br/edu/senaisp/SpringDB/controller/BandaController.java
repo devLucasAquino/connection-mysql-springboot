@@ -19,14 +19,24 @@ public class BandaController {
 	
 	@GetMapping("/inserir")
 		public void InserirBanda() {
-		repository.insere("teste banda", 2024);
+		repository.insere("lucas", 2024);
 			
 	}
 	
 	@GetMapping("/lista")
 	public List<Banda> ListaBandas() {
-		
 		return repository.lista();
 	}
+	
+	@GetMapping("/delete")
+	public void deleteBanda() {
+		repository.delete(8);
+	}
+	
+	
+	
+	
+	
+	
 
 }

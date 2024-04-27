@@ -14,5 +14,5 @@ public interface iCRUD {
 	
 	public void insere(String nome, int anoLaunch);
 	
-	public boolean delete(int id);
+	public void delete(int id);
 }
